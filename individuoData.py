@@ -1,7 +1,3 @@
-from tkinter import Y
-
-from numpy import ix_
-
 
 class Individual():
     def __init__(self, name, genotipoX, genotipoY, iX, iY, fenotipoX, fenotipoY, aptitud):
