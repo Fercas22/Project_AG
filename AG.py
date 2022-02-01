@@ -9,7 +9,7 @@ from objeto import *
 # intervalo.append(int(input('Ingrese el inicio del intervalo: ')))
 # intervalo.append(int(input('Ingrese el final del intervalo: ')))
 # resolucion = float(input('Ingrese la resolución: '))
-
+# cambios
 def main():
     name = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     initialPopulation = 2
