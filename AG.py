@@ -36,10 +36,7 @@ def main():
 
     for i in range(0, initialPopulation):
         bandera = False
-        print('Vuelta #', i)
         while bandera == False:
-            print('Dentro del while en', i)
-            print(len(individual))
             arrayX.append(randonBitsX(bits[0][0]))
             arrayY.append(randonBitsY(bits[1][0]))
             fenotipoX = round(intervalX[0] + (arrayX[i][1] * resolution), 4)
@@ -47,14 +44,10 @@ def main():
             ind = Individual(name[i], arrayX[i][0], arrayY[i][0], arrayX[i][1], arrayY[i][1], fenotipoX, fenotipoY, 0)
             individual.append(ind)
             for k in individual:
-                print('Entramos al for each en i =', i)
-                print('Tamaño despues de agregar', len(individual))
-                print(k.iX, '<=', numberValue[0], 'and', k.iY, '<=', numberValue[1])
+                # print(k.iX, '<=', numberValue[0], 'and', k.iY, '<=', numberValue[1])
                 if k.iX <= numberValue[0] and k.iY <= numberValue[1]:
-                    print('Calificas')
                     bandera = True
                 else:
-                    print('No entramos')
                     individual.pop()
                     arrayX.pop()
                     arrayY.pop()
@@ -68,8 +61,8 @@ def main():
     # d = -2 (fenotipoY**2)
     # e = math.log(fenotipoX)
     print(numberValue)
-    print(individual[0].name, individual[0].genotipoX, individual[0].iX, individual[0].genotipoY, individual[0].iY)
-    print(individual[1].name, individual[1].genotipoX, individual[1].iX, individual[1].genotipoY, individual[1].iY)
+    print('id =', individual[0].name, 'X =', individual[0].genotipoX, 'iX =', individual[0].iX, 'fenotipoX =', individual[0].fenotipoX, 'Y =', individual[0].genotipoY, 'iY =', individual[0].iY, 'fenotipo =', individual[0].fenotipoY, 'Aptitud =', individual[0].aptitud)
+    print('id =', individual[1].name, 'X =', individual[1].genotipoX, 'iX =', individual[1].iX, 'fenotipoX =', individual[1].fenotipoX, 'Y =', individual[1].genotipoY, 'iY =', individual[1].iY, 'fenotipo =', individual[1].fenotipoY, 'Aptitud =', individual[1].aptitud)
    
 # Arreglo de bits para X y su valor en decimal
 def randonBitsX(a):
