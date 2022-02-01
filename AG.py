@@ -55,11 +55,22 @@ def main():
                     break
     
     # - x**3 ln y + 4xy - 2y**2 ln x +1
-    a = (-fenotipoX)**3
-    # b = math.log(fenotipoY)
-    # c = (4 * fenotipoX * fenotipoY)
-    # d = -2 (fenotipoY**2)
-    # e = math.log(fenotipoX)
+    a = (-(fenotipoX**3))
+    print(f'Esto es a -> {a} ---> {fenotipoX}')
+    b = math.log(fenotipoY)
+    print(f'Esto es b --> {b} ----> {fenotipoY}')
+    c = (4 * fenotipoX * fenotipoY)
+    print(f'Esto es c --> {c} --> {fenotipoX}  ---> {fenotipoY}')
+    d = (2*(fenotipoY**2))
+    print(f'Esto es --> {d} --> {fenotipoY}')
+    e = math.log(fenotipoX)
+    print(f'Esto es e --> {e} --> {fenotipoX}')
+
+    # expression = a*b + c - d*e + 1
+    expression = (-(fenotipoX**3)) * (math.log(fenotipoY)) + (4 * fenotipoX * fenotipoY) - (2*(fenotipoY**2)) * math.log(fenotipoX) + 1
+
+    print(f'Aptitud --> {expression}')
+
     print(numberValue)
     print('id =', individual[0].name, 'X =', individual[0].genotipoX, 'iX =', individual[0].iX, 'fenotipoX =', individual[0].fenotipoX, 'Y =', individual[0].genotipoY, 'iY =', individual[0].iY, 'fenotipo =', individual[0].fenotipoY, 'Aptitud =', individual[0].aptitud)
     print('id =', individual[1].name, 'X =', individual[1].genotipoX, 'iX =', individual[1].iX, 'fenotipoX =', individual[1].fenotipoX, 'Y =', individual[1].genotipoY, 'iY =', individual[1].iY, 'fenotipo =', individual[1].fenotipoY, 'Aptitud =', individual[1].aptitud)
