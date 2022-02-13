@@ -1,6 +1,7 @@
 import math
 import random
 from individuoData import *
+import cruza
 
 # intervalo.append(int(input('Ingrese el inicio del intervalo: ')))
 # intervalo.append(int(input('Ingrese el final del intervalo: ')))
@@ -62,6 +63,10 @@ def main():
     # print('id =', individual[1].name, 'X =', individual[1].genotipoX, 'iX =', individual[1].iX, 'fenotipoX =', individual[1].fenotipoX, 'Y =', individual[1].genotipoY, 'iY =', individual[1].iY, 'fenotipo =', individual[1].fenotipoY, 'Aptitud =', individual[1].aptitud)
     for i in range(len(individual)):
         print(individual[i].name)
+    
+    # print(cruza.cruza(individual))
+    # print(cruza.cruza(individual))
+    cruza.cruza(individual)
 
 # Arreglo de bits para X y Y con su valor en decimal
 def randonBits(a):
