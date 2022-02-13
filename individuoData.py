@@ -1,5 +1,5 @@
-
 class Individual():
+    
     def __init__(self, name, genotipoX, genotipoY, iX, iY, fenotipoX, fenotipoY, aptitud):
         self.name = name
         self.genotipoX = genotipoX
