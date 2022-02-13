@@ -13,7 +13,7 @@ class MetodosIndividuo():
             arrayBits.append(random.randint(0, 1))
             contadorBits = contadorBits + str(arrayBits[i])
         decimal = self.binario_to_Decimal(int(contadorBits))
-        print('Contador =', contadorBits)
+        # print('Contador =', contadorBits)
         arrayReturn.append(arrayBits)
         arrayReturn.append(decimal)
         return arrayReturn

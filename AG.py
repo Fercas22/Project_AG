@@ -1,11 +1,9 @@
 import math
 import random
 from individuoData import *
-
 from metodosIndividuo import *
 from mutacion import *
-
-import cruza
+# import cruza
 
 
 def main():
@@ -69,7 +67,8 @@ def main():
 
     # print(cruza.cruza(individual))
     # print(cruza.cruza(individual))
-    cruza.cruza(individual)
+    # cruza.cruza(individual)
+    mutacion.pMutacionIndividuo(individual, mutationIndividual, chromosomeMutation)
 
 
 main()

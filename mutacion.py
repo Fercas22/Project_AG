@@ -11,9 +11,9 @@ class Mutacion():
             # print(proMutacion, '<=', mutacionInd)
             # print(listaIndividuo[i].genotipoX, listaIndividuo[i].name)
             if (proMutacion <= mutacionInd):
-                # print(listaIndividuo[i].genotipoX)
+                print(listaIndividuo[i].name, listaIndividuo[i].genotipoX)
                 self.mutacionX(listaIndividuo[i].genotipoX, cromosomaInd)
-                # print(listaIndividuo[i].genotipoX)
+                print(listaIndividuo[i].name, listaIndividuo[i].genotipoX)
                 
     def mutacionX(self, x, cromosomaInd):
         metodos = MetodosIndividuo()
@@ -24,10 +24,10 @@ class Mutacion():
             # print(proCromosoma ,'<=', cromosomaInd)
             if (proCromosoma <= cromosomaInd):
                 if (x[i] == 0):
-                    # print(i)
+                    print(i)
                     x[i] = 1
                 elif (x[i] == 1):
-                    # print(i)
+                    print(i)
                     x[i] = 0
             bits = bits + str(x[i])
         decimal = metodos.binario_to_Decimal(int(bits))

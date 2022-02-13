@@ -127,8 +127,4 @@ def cruza(individual):
             name1 += pares[i][0].name + pares[i][0].name
             
             print(f'NAME1 --> {name1}')
-
-            
-
-        
-
+      
