@@ -6,13 +6,10 @@ def cruza(individual):
     pares = []
     poblation = individual
 
-    # print(f'Poblacion --> {poblation}')
-
     while len(poblation) > 0:
         aleatorio = random.randint(0, len(poblation)-1)
         pareja1 = poblation.pop(aleatorio)
 
-        # print(f'pareja1 --> {pareja1.__str__}')
         print(f'pareja1 --> {pareja1.name}')
 
         if len(poblation) > 0:
@@ -112,7 +109,7 @@ def cruza(individual):
                     hijo2BitsY.append(p2y[y])
                     print(f'{p2y[y]}')
             
-            # ind = pass
+            
             ind = IndividuoCruza(name1+name2, hijo2BitsX, hijo2BitsY)
             individuosC.append(ind)
 
@@ -131,7 +128,10 @@ def cruza(individual):
             name1 = ''
             name1 += pares[i][0].name + pares[i][0].name
             
-            print(f'NAME1 --> {name1}')
+            print(f'NAME_1 --> {name1}')
+            
+            ind = IndividuoCruza(name1, pares[i][0].genotipoX, pares[i][0].genotipoY)
+            individuosC.append(ind)
     
     #Individuos
     for i in range(len(individuosC)):
