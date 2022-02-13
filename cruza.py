@@ -1,17 +1,15 @@
 import random
-
+from individuoData import IndividuoCruza
 
 def cruza(individual):
+    individuosC = [] # Individuos cruza
     pares = []
     poblation = individual
-
-    print(f'Poblacion --> {poblation}')
 
     while len(poblation) > 0:
         aleatorio = random.randint(0, len(poblation)-1)
         pareja1 = poblation.pop(aleatorio)
 
-        # print(f'pareja1 --> {pareja1.__str__}')
         print(f'pareja1 --> {pareja1.name}')
 
         if len(poblation) > 0:
@@ -74,6 +72,7 @@ def cruza(individual):
                     print(f'Hijo1 --> {p1x[punto_X]}')
             
             print(f'P1Y --> {p1y} P2Y --> {p2y}')
+            
                 
             for punto_Y in range(len(p1y)):
                 
@@ -87,7 +86,9 @@ def cruza(individual):
             
             # print(f'Esto es hijosX --> {hijo1BitsX}')
             # print(f'Esto es hijosY --> {hijo1BitsY}')
-            
+            ind = IndividuoCruza(name2+name1, hijo1BitsX, hijo1BitsY)
+            individuosC.append(ind)
+            # print(individuosC)
 
             hijo2BitsX = []
             hijo2BitsY = []
@@ -108,23 +109,35 @@ def cruza(individual):
                     hijo2BitsY.append(p2y[y])
                     print(f'{p2y[y]}')
             
-            # print(f'Esto es hijosX --> {hijo2BitsX}')
-            # print(f'Esto es hijosY --> {hijo2BitsY}')
+            
+            ind = IndividuoCruza(name1+name2, hijo2BitsX, hijo2BitsY)
+            individuosC.append(ind)
 
             print(f'px1 {p1x}')
             print(f'py1 {p1y}')
             print(f'px2 {p2x}')
             print(f'py2 {p2y}')
 
-            print(f'Esto es hijosX1 --> {hijo1BitsX}')
-            print(f'Esto es hijosY1 --> {hijo1BitsY}')
+            print(f'Name -->{name1+name2} Esto es hijosX1 --> {hijo1BitsX}')
+            print(f'Name --> {name1+name2} Esto es hijosY1 --> {hijo1BitsY}')
 
-            print(f'Esto es hijosX2 --> {hijo2BitsX}')
-            print(f'Esto es hijosY2 --> {hijo2BitsY}')
+            print(f' Name --> {name2+name1} Esto es hijosX2 --> {hijo2BitsX}')
+            print(f' Name --> {name2+name1}Esto es hijosY2 --> {hijo2BitsY}')
 
         else:
             name1 = ''
             name1 += pares[i][0].name + pares[i][0].name
             
-            print(f'NAME1 --> {name1}')
-      
+            print(f'NAME_1 --> {name1}')
+            
+            ind = IndividuoCruza(name1, pares[i][0].genotipoX, pares[i][0].genotipoY)
+            individuosC.append(ind)
+    
+    #Individuos
+    for i in range(len(individuosC)):
+        print('NAME --> ', individuosC[i].name,' GENOTIPOX --> ', individuosC[i].genotipoX, 'GENOTIPOY --> ',individuosC[i].genotipoY)
+    
+    print(individuosC)
+
+    #Retornar la lista de nuevos individuos generados de la cruza
+    return individuosC

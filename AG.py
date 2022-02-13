@@ -1,5 +1,6 @@
 import math
 import random
+from cruza import cruza
 from individuoData import *
 from metodosIndividuo import *
 from mutacion import *
@@ -40,6 +41,7 @@ def main():
             arrayY.append(metodos.randonBits(bits[1][0]))
             fenotipoX = round(intervalX[0] + (arrayX[i][1] * resolution), 4)
             fenotipoY = round(intervalY[0] + (arrayY[i][1] * resolution), 4)
+            
             if fenotipoX > 0 and fenotipoY > 0:
                 # - x**3 ln y + 4xy - 2y**2 ln x +1
                 aptitud = (-(fenotipoX**3)) * (math.log(fenotipoY)) + (4 * fenotipoX * fenotipoY) - (2*(fenotipoY**2)) * math.log(fenotipoX) + 1
@@ -66,9 +68,8 @@ def main():
         print(individual[i].name)
 
     # print(cruza.cruza(individual))
-    # print(cruza.cruza(individual))
-    # cruza.cruza(individual)
-    mutacion.pMutacionIndividuo(individual, mutationIndividual, chromosomeMutation)
+     
+    cruza.cruza(individual)
 
 
 main()
