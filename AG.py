@@ -1,14 +1,12 @@
 import math
 import random
-from cruza import cruza
+from cruza import *
 from individuoData import *
 from metodosIndividuo import *
 from mutacion import *
-# import cruza
-
 
 def main():
-    mutacion = Mutacion()
+    
     metodos = MetodosIndividuo()
     name = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     initialPopulation = 5
@@ -24,6 +22,7 @@ def main():
     arrayX = []
     arrayY = []
     individual = []
+    poblacion = []
     
     # Tamaño y numero de valores del intervalo
     numberValue.append(metodos.intervalSizes(intervalX, resolution))
@@ -64,12 +63,23 @@ def main():
 
     # print('id =', individual[0].name, 'X =', individual[0].genotipoX, 'iX =', individual[0].iX, 'fenotipoX =', individual[0].fenotipoX, 'Y =', individual[0].genotipoY, 'iY =', individual[0].iY, 'fenotipo =', individual[0].fenotipoY, 'Aptitud =', individual[0].aptitud)
     # print('id =', individual[1].name, 'X =', individual[1].genotipoX, 'iX =', individual[1].iX, 'fenotipoX =', individual[1].fenotipoX, 'Y =', individual[1].genotipoY, 'iY =', individual[1].iY, 'fenotipo =', individual[1].fenotipoY, 'Aptitud =', individual[1].aptitud)
+    
+    
+
     for i in range(len(individual)):
         print(individual[i].name)
+        poblacion.append(individual[i])
 
-    # print(cruza.cruza(individual))
-     
-    cruza.cruza(individual)
+    cmp(individual, mutationIndividual, chromosomeMutation, intervalX[0], intervalY[0], resolution, numberValue)
+
+def cmp(individual, mutacionInd, cromosomaInd, intervalX, intervalY, resolution, valores):
+    cruza = Cruza()
+    mutacion = Mutacion()
+
+    cru = cruza.cruza(individual)
+    muta = mutacion.pMutacionIndividuo(cru, mutacionInd, cromosomaInd, intervalX, intervalY, resolution, valores)
+    for i in range(len(muta)):
+        print(muta[i].name)
 
 
 main()
