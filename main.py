@@ -85,7 +85,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             generation = int(generation)
 
             #LLamada de la funcion main del archivo AG.py
-            # ag.main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndividual, chromosomeMutation, resolution, generation)
+            ag.main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndividual, chromosomeMutation, resolution, generation)
 
         else:
             print('Vacio')

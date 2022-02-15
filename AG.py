@@ -12,20 +12,21 @@ generacionPeor = []
 generacionPromedio = []
 generacionMejor = []
 poblacion = []
-# def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndividual, chromosomeMutation, resolution, generation ):
 
-def main():
+def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndividual, chromosomeMutation, resolution, generacion):
+
+    # def main():
 
     metodos = MetodosIndividuo()
     name = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    initialPopulation = 5 #Comentar
-    populationLimit = 4 #Comentar
-    mutationIndividual = 0.6 #Comentar
-    chromosomeMutation = 0.07 #Comentar
-    resolution = 0.08 #Comentar
-    intervalX = [-3, 5] # Comentar
-    intervalY = [5, 8] #Comentar
-    generacion = []
+    # initialPopulation = 5 #Comentar
+    # populationLimit = 7 #Comentar
+    # mutationIndividual = 0.6 #Comentar
+    # chromosomeMutation = 0.07 #Comentar
+    # resolution = 0.08 #Comentar
+    # intervalX = [-3, 5] # Comentar
+    # intervalY = [5, 8] #Comentar
+    # generacion = 2
 
     numberValue = []
     bits = []
@@ -86,13 +87,13 @@ def main():
         generacionPromedio.append([i + 1, gene[2]])
         generacionMejor.append([i + 1, gene[3]])
 
-    print(generacionMejor)
-    print(len(generacionSinPoda))
-    print(generacionSinPoda)
-    # print('GENERACIONES')
-    # for j in range(len(generacionPeor)):
-    #     print('GENERACION:', generacionPeor[j][0])
-    #     print('Peor:', generacionPeor[j][1])
+    # print(generacionPeor)
+    # print(len(generacionSinPoda))
+    # print(generacionSinPoda)
+    print('GENERACIONES')
+    for j in range(len(generacionPeor)):
+        print('GENERACION:', generacionPeor[j][0])
+        print('Peor:', generacionPeor[j][1])
         # for k in range(len(generacionPeor[j][1])):
     #         # print(generacionSinPoda[j][1][k].name)
     
@@ -104,7 +105,7 @@ def cmp(individual, mutacionInd, cromosomaInd, intervalX, intervalY, resolution,
     generacion = []
     apt = []
     aptPo = []
-    
+    # print(individual)
     # Añadir la poblacion incial a un auxiliar
     for i in range(len(individuoIni)):
         individuoAux.append(individuoIni[i])
@@ -124,6 +125,7 @@ def cmp(individual, mutacionInd, cromosomaInd, intervalX, intervalY, resolution,
     
     # Peor individuo de la generacion
     minValue = min(apt)
+    # print(minValue)
     # Poda
     po = poda(individuoAux, populationLimit, apt)
     # Promedio de la generacion
@@ -142,6 +144,11 @@ def cmp(individual, mutacionInd, cromosomaInd, intervalX, intervalY, resolution,
     generacion.append(promedio)
     generacion.append(maxValue)
 
+    for i in range(len(poblacion)):
+        poblacion.pop()
+
+    for j in range(len(po)):
+        poblacion.append(po[j])
     # print(generacion)
     return generacion
 
