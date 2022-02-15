@@ -7,12 +7,12 @@ from individuoData import *
 from metodosIndividuo import *
 from mutacion import *
 
-generacionSinPoda = []
-generacionPeor = []
-generacionPromedio = []
-generacionMejor = []
-poblacion = []
-mejores = []
+generacionSinPoda = [] # [generacion, objeto<individuo>] = [[1, objeto], [2, objeto]...]
+generacionPeor = [] # [generacion, peorIndividuo]
+generacionPromedio = [] # [generacion, promedioIndividuo]
+generacionMejor = [] # [generacion, mejorIndividuo]
+poblacion = [] # [objetos<Individuo>]
+mejores = [] # Almacenar a los 5 mejores
 
 def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndividual, chromosomeMutation, resolution, generacion):
 
@@ -92,11 +92,11 @@ def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndiv
     # print(len(generacionSinPoda))
     # print(generacionSinPoda)
     print('GENERACIONES')
-    for j in range(len(generacionPeor)):
-        print('GENERACION:', generacionPeor[j][0])
-        print('Peor:', generacionPeor[j][1])
-        # for k in range(len(generacionPeor[j][1])):
-    #         # print(generacionSinPoda[j][1][k].name)
+    for j in range(len(generacionSinPoda)):
+        print('GENERACION:', generacionSinPoda[j][0])
+        # print('Peor:', generacionPeor[j][1])
+        for k in range(len(generacionSinPoda[j][1])):
+            print(generacionSinPoda[j][1][k].name)
     
 def cmp(individual, mutacionInd, cromosomaInd, intervalX, intervalY, resolution, valores, populationLimit):
     cruza = Cruza()
@@ -137,7 +137,7 @@ def cmp(individual, mutacionInd, cromosomaInd, intervalX, intervalY, resolution,
         suma = suma + po[i].aptitud
     promedio = suma / len(po)
     # Mejor individuo de la generacion
-    maxValue = max(apt)
+    maxValue = max(aptPo)
     # generacion = [sinPoda, peor, promedio, mejor]
     generacion.append(individuoAux)
     generacion.append(minValue)
