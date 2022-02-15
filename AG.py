@@ -12,19 +12,20 @@ generacionPeor = []
 generacionPromedio = []
 generacionMejor = []
 poblacion = []
+# def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndividual, chromosomeMutation, resolution, generation ):
 
 def main():
-    
+
     metodos = MetodosIndividuo()
     name = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    initialPopulation = 5
-    populationLimit = 7
-    mutationIndividual = 0.6
-    chromosomeMutation = 0.07
-    resolution = 0.08
-    intervalX = [-3, 5]
-    intervalY = [5, 8]
-    generacion = 2
+    initialPopulation = 5 #Comentar
+    populationLimit = 4 #Comentar
+    mutationIndividual = 0.6 #Comentar
+    chromosomeMutation = 0.07 #Comentar
+    resolution = 0.08 #Comentar
+    intervalX = [-3, 5] # Comentar
+    intervalY = [5, 8] #Comentar
+    generacion = []
 
     numberValue = []
     bits = []
