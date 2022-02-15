@@ -15,7 +15,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         #Title
         self.setWindowTitle('.:: ALGORITMOS GENETICOS ::.')
-        self.setFixedSize(800, 600)
+        # self.setFixedSize(800, 600)
 
         #Validar tipos de datos
         self.initialPopulation.setValidator(QtGui.QIntValidator()) # int poblacion Inicial

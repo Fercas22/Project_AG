@@ -12,6 +12,7 @@ generacionPeor = []
 generacionPromedio = []
 generacionMejor = []
 poblacion = []
+mejores = []
 
 def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndividual, chromosomeMutation, resolution, generacion):
 
@@ -137,9 +138,8 @@ def cmp(individual, mutacionInd, cromosomaInd, intervalX, intervalY, resolution,
     promedio = suma / len(po)
     # Mejor individuo de la generacion
     maxValue = max(apt)
-    # generacion = [sinPoda, conPoda, peor, promedio, mejor]
+    # generacion = [sinPoda, peor, promedio, mejor]
     generacion.append(individuoAux)
-    # generacion.append(po)
     generacion.append(minValue)
     generacion.append(promedio)
     generacion.append(maxValue)
@@ -150,6 +150,9 @@ def cmp(individual, mutacionInd, cromosomaInd, intervalX, intervalY, resolution,
     for j in range(len(po)):
         poblacion.append(po[j])
     # print(generacion)
+    mejores.clear()
+    mejores5 = mejor(po)
+
     return generacion
 
 def poda(individuo, populationLimit, apt):
@@ -171,4 +174,28 @@ def poda(individuo, populationLimit, apt):
                 break 
     return ind
 
-main()
+def mejor(pobla):
+    ind = pobla.copy()
+    apt = []
+    
+    for i in range(len(ind)):
+        # print(individuoAux[i].name, individuoAux[i].aptitud)
+        apt.append(ind[i].aptitud)
+
+    while len(ind) > 5:
+        # print(len(ind), '>', populationLimit)
+        minValue = min(apt)
+        # print(maxValue)
+        for i in range(len(ind)):
+            # print(ind[i].aptitud, '=', maxValue)
+            if ind[i].aptitud == minValue:
+                ind.pop(i)
+                break
+        for j in range(len(apt)):
+            if apt[j] == minValue:
+                apt.pop(j)
+                break 
+    return ind
+
+
+# main()
