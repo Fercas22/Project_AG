@@ -171,4 +171,4 @@ def poda(individuo, populationLimit, apt):
                 break 
     return ind
 
-main()
+# main()
