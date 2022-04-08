@@ -23,14 +23,14 @@ def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndiv
 
     metodos = MetodosIndividuo()
     name = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    initialPopulation = 5 #Comentar
-    populationLimit = 7 #Comentar
-    mutationIndividual = 0.6 #Comentar
-    chromosomeMutation = 0.07 #Comentar
-    resolution = 0.08 #Comentar
-    intervalX = [-3, 5] # Comentar
-    intervalY = [5, 8] #Comentar
-    generacion = 20
+    # initialPopulation = 5 #Comentar
+    # populationLimit = 7 #Comentar
+    # mutationIndividual = 0.6 #Comentar
+    # chromosomeMutation = 0.07 #Comentar
+    # resolution = 0.08 #Comentar
+    # intervalX = [-3, 5] # Comentar
+    # intervalY = [5, 8] #Comentar
+    # generacion = 20
 
     numberValue = []
     bits = []
@@ -212,36 +212,75 @@ def mejor(pobla):
     return ind
 
 def grafica(generacion):
-    print('Entramos a grafica')
-    print(generacionMejor)
-    print(generacionPeor)
-    print(generacionPromedio)
+    # print('Entramos a grafica')
+    # print(generacionMejor)
+    # print(generacionPeor)
+    # print(generacionPromedio)
     promedio = []
     peorAptitud = []
     mejorAptitud = []
-    # print(len(generacion))
+    # # print(len(generacion))
     tam = []
     for j in range(0, generacion):
         tam.append(j)
-    print(len(tam))
-    # print(generacionPromedio[1][1])
+    # print(len(tam))
+    # # print(generacionPromedio[1][1])
+    # for i in range(len(generacionMejor)):
+    #     promedio.append(int(generacionPromedio[i][1]))
+    #     peorAptitud.append(generacionPeor[i][1])
+    #     mejorAptitud.append(generacionMejor[i][1])
+
+    # figure = plt.figure(figsize=(5,5))
+    # ax = plt.subplot(1,1,1)
+    # ax.plot( tam, promedio, label='Promedio',marker='.')  # Plot some data on the (implicit) axes.
+    # ax.plot( tam, peorAptitud, label='Peor',marker='.')  # etc.
+    # ax.plot( tam, mejorAptitud, label='Mejor',marker='.')
+
+    # blue_line = mlines.Line2D([], [], color='blue', markersize=10, label='Promedio')
+    # red = mlines.Line2D([], [], color='orange', markersize=10, label='Peor')
+    # yel = mlines.Line2D([], [], color='green', markersize=10, label='Mejor')
+    # ax.legend(handles=[blue_line,red,yel])
+
+    # plt.show()
+    grafica = plt.subplot(1,2,1)
+    grafica.set_title("Gráfica")
+
     for i in range(len(generacionMejor)):
         promedio.append(int(generacionPromedio[i][1]))
         peorAptitud.append(generacionPeor[i][1])
         mejorAptitud.append(generacionMejor[i][1])
 
-    figure = plt.figure(figsize=(5,5))
-    ax = plt.subplot(1,1,1)
-    ax.plot( tam, promedio, label='Promedio',marker='.')  # Plot some data on the (implicit) axes.
-    ax.plot( tam, peorAptitud, label='Peor',marker='.')  # etc.
-    ax.plot( tam, mejorAptitud, label='Mejor',marker='.')
+    # figure = plt.figure(figsize=(5,5))
+    # ax = plt.subplot(1,1,1)
+    grafica.plot( tam, promedio, label='Promedio',marker='.')  # Plot some data on the (implicit) axes.
+    grafica.plot( tam, peorAptitud, label='Peor',marker='.')  # etc.
+    grafica.plot( tam, mejorAptitud, label='Mejor',marker='.')
 
     blue_line = mlines.Line2D([], [], color='blue', markersize=10, label='Promedio')
     red = mlines.Line2D([], [], color='orange', markersize=10, label='Peor')
     yel = mlines.Line2D([], [], color='green', markersize=10, label='Mejor')
-    ax.legend(handles=[blue_line,red,yel])
+    grafica.legend(handles=[blue_line,red,yel])
+    grafica.legend()
 
-    plt.show()  
+    tabla = plt.subplot(1,2,2)
+    tabla.set_title('Tabla')
+    tabla.axis('off')
+
+    table = [['Generacion','Aptitud']]
+    # for i in range(5):
+    #     # print(f'Esta es la generacion {generacionMejor}')
+    #     table.append([generacionMejor[i]])
+    print(generacionMejor)
+    table.append([generacionMejor[-1][0], generacionMejor[-1][1]])
+    table.append([generacionMejor[-2][0], generacionMejor[-2][1]])
+    table.append([generacionMejor[-3][0], generacionMejor[-3][1]])
+    table.append([generacionMejor[-4][0], generacionMejor[-4][1]])
+    table.append([generacionMejor[-5][0], generacionMejor[-5][1]])
 
 
+    table = tabla.table(cellText=table, loc='center', cellLoc= 'center')
+    table.auto_set_font_size(False)
+    table.set_fontsize(12)
+    table.scale(1, 3)
+    plt.show()
 # main()

@@ -35,7 +35,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.exitButton.clicked.connect(self.exit)
     
     def getValues(self):
-        self.initialPopulation.setText('034')
+        # self.initialPopulation.setText('034')
         initialPopulation = self.initialPopulation.text()
         populationLimit = self.populationLimit.text()
 
