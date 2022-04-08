@@ -13,7 +13,7 @@ def graficaGeneracionSinPoda(generaSinPoda, rangoX, rangoY):
     generacion_sinPoda = generaSinPoda.copy()
     x = []
     y = []
-    print(f'RANGOX {rangoX} RANGOY {rangoY}')
+    # print(f'RANGOX {rangoX} RANGOY {rangoY}')
     # plt.axis([rangoX[0], rangoY[1], rangoY[0], rangoY[1]])
     
 
@@ -25,8 +25,8 @@ def graficaGeneracionSinPoda(generaSinPoda, rangoX, rangoY):
             x.append(generacion_sinPoda[i][1][j].fenotipoX)
             y.append(generacion_sinPoda[i][1][j].fenotipoY)
             plt.scatter(x,y)
-        print(f'FENOTIPO EN X --> {x}')
-        print(f'FENOTIPO EN Y --> {y}')
+        # print(f'FENOTIPO EN X --> {x}')
+        # print(f'FENOTIPO EN Y --> {y}')
         plt.xlabel(str(len(x)))
         plt.ylabel(str(len(y)))
         # plt.axis([min(x),max(x)+1, min(y), max(y)+1])
@@ -74,13 +74,13 @@ def convertToVideo():
     path = os.getcwd()+'/img/'
     archivos = sorted(os.listdir(path))
     img_array = []
-    print(archivos)
+    # print(archivos)
     # # #Leer imagenes
     for i in range(0,len(archivos)):
         nombreArchivo = archivos[i]
-        print(nombreArchivo)
+        # print(nombreArchivo)
         dirArchivo = path+str(nombreArchivo)
-        print(dirArchivo)
+        # print(dirArchivo)
         img = cv2.imread(dirArchivo)
         img_array.append(img)
         # cv2.imshow('img_'+str(i+1),img)
@@ -88,8 +88,8 @@ def convertToVideo():
         # cv2.destroyAllWindows()
     # alto, ancho = img.shape[:2]
     # print(f'SHAPE --> {img.shape}')
-    print("CREAR VIDEO -->")
-    print(f"ESTO ES EL ARRAY {img_array}")
+    # print("CREAR VIDEO -->")
+    # print(f"ESTO ES EL ARRAY {img_array}")
     alto = img.shape[0]
     ancho = img.shape[1]
     video = cv2.VideoWriter('./video/videoEvolucion.avi', cv2.VideoWriter_fourcc(*'DIVX'), 1, (ancho, alto))

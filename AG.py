@@ -95,16 +95,16 @@ def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndiv
     # print(len(generacionSinPoda))
     # print(generacionSinPoda)
     print('GENERACIONES')
-    for j in range(len(generacionSinPoda)):
-        print('GENERACION:', generacionSinPoda[j][0])
-        # print('Peor:', generacionPeor[j][1])
-        for k in range(len(generacionSinPoda[j][1])):
-            print(generacionSinPoda[j][1][k].name)
+    # for j in range(len(generacionSinPoda)):
+    #     print('GENERACION:', generacionSinPoda[j][0])
+    #     # print('Peor:', generacionPeor[j][1])
+    #     for k in range(len(generacionSinPoda[j][1])):
+    #         print(generacionSinPoda[j][1][k].name)
 
-    print("Llega a la grafica de genaracion sin poda")
+    # print("Llega a la grafica de genaracion sin poda")
     graficaGeneracionSinPoda(generacionSinPoda, intervalX, intervalY)
     # convertToVideo(pathIn, pathOut, fps, time)
-    print("Llega a convertir video")
+    # print("Llega a convertir video")
     convertToVideo()
     grafica(generacion)
     # print(generacionMejor)
@@ -120,6 +120,8 @@ def cmp(individual, mutacionInd, cromosomaInd, intervalX, intervalY, resolution,
     generacion = []
     apt = []
     aptPo = []
+    print(individuoAux)
+    print('Aptitudes', apt)
     # print(individual)
     # Añadir la poblacion incial a un auxiliar
     for i in range(len(individuoIni)):
@@ -172,13 +174,13 @@ def cmp(individual, mutacionInd, cromosomaInd, intervalX, intervalY, resolution,
 def poda(individuo, populationLimit, apt):
     ind = individuo.copy()
     apt = apt.copy()
-    
+    print(len(ind), '>', populationLimit)
     while len(ind) > populationLimit:
         # print(len(ind), '>', populationLimit)
         minValue = min(apt)
-        # print(maxValue)
+        print('PODA')
         for i in range(len(ind)):
-            # print(ind[i].aptitud, '=', maxValue)
+            print(ind[i].aptitud, '=', minValue)
             if ind[i].aptitud == minValue:
                 ind.pop(i)
                 break
@@ -284,4 +286,5 @@ def grafica(generacion):
     table.set_fontsize(12)
     table.scale(1, 3)
     plt.show()
+
 # main()
