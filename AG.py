@@ -6,6 +6,8 @@ from cruza import *
 from individuoData import *
 from metodosIndividuo import *
 from mutacion import *
+from grafGeneSinPoda import *
+
 
 generacionSinPoda = [] # [generacion, objeto<individuo>] = [[1, objeto], [2, objeto]...]
 generacionPeor = [] # [generacion, peorIndividuo]
@@ -15,7 +17,6 @@ poblacion = [] # [objetos<Individuo>]
 mejores = [] # Almacenar a los 5 mejores
 
 def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndividual, chromosomeMutation, resolution, generacion):
-
     # def main():
 
     metodos = MetodosIndividuo()
@@ -27,7 +28,7 @@ def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndiv
     # resolution = 0.08 #Comentar
     # intervalX = [-3, 5] # Comentar
     # intervalY = [5, 8] #Comentar
-    # generacion = 2
+    # generacion = 20
 
     numberValue = []
     bits = []
@@ -97,6 +98,12 @@ def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndiv
         # print('Peor:', generacionPeor[j][1])
         for k in range(len(generacionSinPoda[j][1])):
             print(generacionSinPoda[j][1][k].name)
+
+    print("Llega a la grafica de genaracion sin poda")
+    graficaGeneracionSinPoda(generacionSinPoda, intervalX, intervalY)
+    # convertToVideo(pathIn, pathOut, fps, time)
+    print("Llega a convertir video")
+    convertToVideo()
     
 def cmp(individual, mutacionInd, cromosomaInd, intervalX, intervalY, resolution, valores, populationLimit):
     cruza = Cruza()
