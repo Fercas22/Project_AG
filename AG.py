@@ -7,7 +7,9 @@ from individuoData import *
 from metodosIndividuo import *
 from mutacion import *
 from grafGeneSinPoda import *
-
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.lines as mlines
 
 generacionSinPoda = [] # [generacion, objeto<individuo>] = [[1, objeto], [2, objeto]...]
 generacionPeor = [] # [generacion, peorIndividuo]
@@ -17,18 +19,18 @@ poblacion = [] # [objetos<Individuo>]
 mejores = [] # Almacenar a los 5 mejores
 
 def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndividual, chromosomeMutation, resolution, generacion):
-    # def main():
+# def main():
 
     metodos = MetodosIndividuo()
     name = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    # initialPopulation = 5 #Comentar
-    # populationLimit = 7 #Comentar
-    # mutationIndividual = 0.6 #Comentar
-    # chromosomeMutation = 0.07 #Comentar
-    # resolution = 0.08 #Comentar
-    # intervalX = [-3, 5] # Comentar
-    # intervalY = [5, 8] #Comentar
-    # generacion = 20
+    initialPopulation = 5 #Comentar
+    populationLimit = 7 #Comentar
+    mutationIndividual = 0.6 #Comentar
+    chromosomeMutation = 0.07 #Comentar
+    resolution = 0.08 #Comentar
+    intervalX = [-3, 5] # Comentar
+    intervalY = [5, 8] #Comentar
+    generacion = 20
 
     numberValue = []
     bits = []
@@ -104,6 +106,11 @@ def main(initialPopulation, populationLimit, intervalX, intervalY, mutationIndiv
     # convertToVideo(pathIn, pathOut, fps, time)
     print("Llega a convertir video")
     convertToVideo()
+    grafica(generacion)
+    # print(generacionMejor)
+    # print(generacionPeor)
+    # print(generacionPromedio)
+
     
 def cmp(individual, mutacionInd, cromosomaInd, intervalX, intervalY, resolution, valores, populationLimit):
     cruza = Cruza()
@@ -204,6 +211,37 @@ def mejor(pobla):
                 break 
     return ind
 
+def grafica(generacion):
+    print('Entramos a grafica')
+    print(generacionMejor)
+    print(generacionPeor)
+    print(generacionPromedio)
+    promedio = []
+    peorAptitud = []
+    mejorAptitud = []
+    # print(len(generacion))
+    tam = []
+    for j in range(0, generacion):
+        tam.append(j)
+    print(len(tam))
+    # print(generacionPromedio[1][1])
+    for i in range(len(generacionMejor)):
+        promedio.append(int(generacionPromedio[i][1]))
+        peorAptitud.append(generacionPeor[i][1])
+        mejorAptitud.append(generacionMejor[i][1])
+
+    figure = plt.figure(figsize=(5,5))
+    ax = plt.subplot(1,1,1)
+    ax.plot( tam, promedio, label='Promedio',marker='.')  # Plot some data on the (implicit) axes.
+    ax.plot( tam, peorAptitud, label='Peor',marker='.')  # etc.
+    ax.plot( tam, mejorAptitud, label='Mejor',marker='.')
+
+    blue_line = mlines.Line2D([], [], color='blue', markersize=10, label='Promedio')
+    red = mlines.Line2D([], [], color='orange', markersize=10, label='Peor')
+    yel = mlines.Line2D([], [], color='green', markersize=10, label='Mejor')
+    ax.legend(handles=[blue_line,red,yel])
+
+    plt.show()  
 
 
 # main()
