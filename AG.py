@@ -220,6 +220,7 @@ def grafica(generacion):
     peorAptitud = []
     mejorAptitud = []
     # print(len(generacion))
+    
     tam = []
     for j in range(0, generacion):
         tam.append(j)
